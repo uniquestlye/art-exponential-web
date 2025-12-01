@@ -770,7 +770,7 @@ export default function Home() {
                 <a
                   key={item}
                   href={`#${item}`}
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  onClick={() => setIsMenuOpen(false)}
                   className="block px-4 py-3 text-slate-600 hover:text-[#D4AF37] hover:bg-[#D4AF37]/5 rounded-xl font-medium transition-colors"
                 >
                   {item}
