@@ -770,7 +770,7 @@ export default function Home() {
                 <a
                   key={item}
                   href={`#${item}`}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="block px-4 py-3 text-slate-600 hover:text-[#D4AF37] hover:bg-[#D4AF37]/5 rounded-xl font-medium transition-colors"
                 >
                   {item}
@@ -1762,7 +1762,8 @@ export default function Home() {
                 </div>
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className="w-10 h-10 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full transition-colors"
+                  className="w-10 h-10 flex items-center justify-center bg-white/80 hover:bg-white text-slate-500 hover:text-red-500 rounded-full shadow-lg backdrop-blur-md transition-all duration-200 transform hover:scale-110 border border-slate-100"
+
                 >
                   <X size={20} />
                 </button>
@@ -1879,6 +1880,33 @@ export default function Home() {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+        {/* --- ส่วนแสดงผลรูปภาพขยายใหญ่ (Image Modal) --- */}
+        {openImage && (
+          <div
+            className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={() => setOpenImage(null)}
+          >
+            {/* ปุ่มปิด (X) */}
+            <button
+              onClick={() => setOpenImage(null)}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[1000]"
+            >
+              <X size={40} />
+            </button>
+
+            {/* รูปภาพ */}
+            <div 
+              className="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()} // กดที่รูปแล้วไม่ปิด
+            >
+              <img
+                src={openImage}
+                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                alt="Full view"
+              />
             </div>
           </div>
         )}
