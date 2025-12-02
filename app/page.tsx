@@ -38,7 +38,6 @@ import {
   Sun,
   Monitor,
   Hammer,
-  
 } from "lucide-react";
 
 import { FaLine } from "react-icons/fa";
@@ -79,7 +78,7 @@ const services = [
   },
 ];
 
-/* --- UPDATED NEWS DATA (เพิ่ม content) --- */
+/* --- NEWS DATA --- */
 const newsUpdates = [
   {
     id: 1,
@@ -102,7 +101,7 @@ const newsUpdates = [
       </ul>
       <br/>
       <p>เราภูมิใจที่เป็นส่วนหนึ่งในความสำเร็จของลูกค้า และมุ่งมั่นที่จะส่งมอบงานคุณภาพมาตรฐานสากลต่อไป</p>
-    `
+    `,
   },
   {
     id: 2,
@@ -117,7 +116,7 @@ const newsUpdates = [
       <p>บริษัท A.R.T Exponential จำกัด มีความยินดีที่จะประกาศว่า เราได้รับการรับรองมาตรฐานระบบบริหารงานคุณภาพ ISO 9001:2015 อย่างเป็นทางการ</p>
       <br/>
       <p>การได้รับการรับรองในครั้งนี้ เป็นเครื่องยืนยันถึงความมุ่งมั่นของเราในการพัฒนาระบบการทำงานให้มีประสิทธิภาพ ตรวจสอบได้ และมุ่งเน้นความพึงพอใจของลูกค้าเป็นสำคัญ ตั้งแต่กระบวนการรับความต้องการ การออกแบบติดตั้ง ไปจนถึงบริการหลังการขาย</p>
-    `
+    `,
   },
   {
     id: 3,
@@ -138,7 +137,7 @@ const newsUpdates = [
         <li>การใช้งานอุปกรณ์ PPE อย่างถูกต้อง</li>
         <li>Workshop จำลองสถานการณ์ฉุกเฉิน</li>
       </ul>
-    `
+    `,
   },
   {
     id: 4,
@@ -161,7 +160,7 @@ const newsUpdates = [
       </ul>
       <br/>
       <p>พร้อมจำหน่ายและติดตั้งแล้ววันนี้ สอบถามข้อมูลเพิ่มเติมได้ที่ฝ่ายขาย</p>
-    `
+    `,
   },
 ];
 
@@ -181,12 +180,12 @@ const clients = [
 /* ---------- 3D ANIMATION COMPONENT ---------- */
 const ElectricalSystem3D = () => {
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center perspective-[1200px] overflow-visible select-none pointer-events-none">
+    <div className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center perspective-[1200px] overflow-visible select-none pointer-events-none scale-75 md:scale-100">
       {/* Container for the 3D Scene */}
       <div className="relative w-[300px] h-[300px] transform-style-3d rotate-x-[15deg] rotate-y-[-20deg] animate-scene-float">
         {/* --- 1. SOLAR PANEL (Background) --- */}
         <div className="absolute top-[-100px] left-[40px] w-[180px] h-[120px] transform-style-3d translate-z-[20px] rotate-x-[10deg] opacity-90">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900 border border-slate-600 rounded-lg overflow-hidden shadow-lg">
+          <div className="absolute inset-0 bg-linear-to-br from-blue-900 to-slate-900 border border-slate-600 rounded-lg overflow-hidden shadow-lg">
             <div
               className="absolute inset-0 opacity-30"
               style={{
@@ -696,10 +695,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Menu Dropdown (Updated) */}
+          {/* Mobile Menu Dropdown (Fixed: Overflow & Visibility) */}
           <div
-            className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-xl transition-all duration-300 ${
-              isMenuOpen ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
+            className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-xl transition-all duration-300 overflow-hidden ${
+              isMenuOpen ? "max-h-[85vh] opacity-100 visible" : "max-h-0 opacity-0 invisible"
             }`}
           >
             <div className="px-4 py-6 space-y-2 overflow-y-auto max-h-[80vh]">
@@ -728,16 +727,15 @@ export default function Home() {
         {/* HERO SECTION */}
         <section
           id="หน้าแรก"
-          className="relative min-h-[95vh] flex items-center pt-20 pb-25 overflow-hidden bg-gradient-to-br from-white via-[#D4AF37]/5 to-slate-200/50"
+          className="relative min-h-[95vh] flex items-center pt-24 pb-12 md:pt-20 md:pb-25 overflow-hidden bg-gradient-to-br from-white via-[#D4AF37]/5 to-slate-200/50"
         >
-          {/* ... (Hero Content เดิม) ... */}
           <div className="absolute inset-0 bg-grid-tech opacity-40"></div>
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-300/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="text-center lg:text-left space-y-8 animate-in slide-in-from-left duration-700">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center">
+              <div className="text-center lg:text-left space-y-6 md:space-y-8 animate-in slide-in-from-left duration-700">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded text-slate-500 text-xs font-mono font-bold tracking-wider mb-2 shadow-sm">
                   <Activity
                     size={14}
@@ -746,7 +744,7 @@ export default function Home() {
                   SYSTEM READY
                 </div>
 
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-slate-900 tracking-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-slate-900 tracking-tight">
                   <span className="text-gold-gradient">A.R.T</span> <br />
                   <span className="relative">
                     EXPONENTIAL
@@ -764,12 +762,12 @@ export default function Home() {
                     </svg>
                   </span>
                   <br />
-                  <span className="text-3xl lg:text-5xl text-slate-400 font-light mt-2 block">
+                  <span className="text-2xl md:text-3xl lg:text-5xl text-slate-400 font-light mt-2 block">
                     Solutions Provider
                   </span>
                 </h1>
 
-                <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light border-l-4 border-[#D4AF37] pl-6">
+                <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light border-l-4 border-[#D4AF37] pl-6">
                   ผู้เชี่ยวชาญด้านงานระบบไฟฟ้าครบวงจร
                   ตั้งแต่การจำหน่ายอุปกรณ์ไฟฟ้า ไปจนถึงการติดตั้งและบำรุงรักษา
                   ด้วยมาตรฐานความปลอดภัยสูงสุด
@@ -791,7 +789,7 @@ export default function Home() {
                   </a>
                 </div>
 
-                <div className="pt-8 flex items-center justify-center lg:justify-start gap-8 text-sm text-slate-500 font-mono">
+                <div className="pt-4 md:pt-8 flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 md:gap-8 text-sm text-slate-500 font-mono">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={16} className="text-emerald-500" />
                     <span>ISO 9001:2015</span>
@@ -803,7 +801,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative h-[500px] flex items-center justify-center animate-in zoom-in-95 duration-1000 delay-200">
+              <div className="relative h-[350px] md:h-[500px] flex items-center justify-center animate-in zoom-in-95 duration-1000 delay-200">
                 <ElectricalSystem3D />
               </div>
             </div>
@@ -813,14 +811,14 @@ export default function Home() {
         {/* ABOUT US */}
         <section
           id="เกี่ยวกับเรา"
-          className="py-24 bg-white relative overflow-hidden"
+          className="py-12 md:py-24 bg-white relative overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-16">
               <span className="text-[#B59024] font-bold tracking-wider text-sm uppercase bg-[#D4AF37]/10 px-3 py-1 rounded-full">
                 About Our Company
               </span>
-              <h2 className="text-3xl lg:text-5xl font-bold text-slate-900 mt-4">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-4">
                 เกี่ยวกับเรา
               </h2>
             </div>
@@ -844,7 +842,7 @@ export default function Home() {
                 </button>
               ))}
             </div>
-            <div className="bg-white border border-slate-100 shadow-xl shadow-slate-200/50 rounded-[2.5rem] p-8 lg:p-12 min-h-[450px] flex items-center justify-center relative overflow-hidden">
+            <div className="bg-white border border-slate-100 shadow-xl shadow-slate-200/50 rounded-[2.5rem] p-6 md:p-12 min-h-[450px] flex items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
               {activeAboutTab === "history" && (
                 <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500 grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -1055,14 +1053,14 @@ export default function Home() {
         {/* Services Section */}
         <section
           id="บริการ"
-          className="py-24 bg-slate-50 text-slate-800 relative overflow-hidden"
+          className="py-12 md:py-24 bg-slate-50 text-slate-800 relative overflow-hidden"
         >
           {/* ... (Service Content เดิม) ... */}
           <div className="absolute top-0 left-0 w-full h-full bg-grid-tech opacity-10"></div>
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div>
-                <h2 className="text-4xl font-bold mb-4 text-slate-900">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
                   บริการของเรา
                 </h2>
                 <div className="h-1 w-20 bg-[#D4AF37] rounded-full mb-4"></div>
@@ -1109,14 +1107,14 @@ export default function Home() {
         {/* Products */}
         <section
           id="สินค้า"
-          className="py-24 bg-white relative overflow-hidden"
+          className="py-12 md:py-24 bg-white relative overflow-hidden"
         >
           {/* ... (Product Content เดิม) ... */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[100px] opacity-60 pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-200/50 rounded-full blur-[100px] opacity-60 pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-slate-900">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
                 สินค้าและบริการ
               </h2>
               <div className="w-16 h-1.5 bg-[#D4AF37] rounded-full mx-auto mt-4"></div>
@@ -1256,7 +1254,7 @@ export default function Home() {
         {/* News Section (Updated) */}
         <section
           id="ข่าวสาร"
-          className="py-24 bg-slate-50 relative overflow-hidden"
+          className="py-12 md:py-24 bg-slate-50 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-grid-tech opacity-20"></div>
           <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -1332,17 +1330,17 @@ export default function Home() {
         {/* Clients Section (Updated: Fix Auto Scroll) */}
         <section
           id="ลูกค้า"
-          className="py-16 bg-slate-50 border-t border-slate-100"
+          className="py-12 md:py-16 bg-slate-50 border-t border-slate-100"
         >
           <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
             <span className="text-slate-400 text-sm font-bold tracking-widest uppercase">
               Trusted by Trusted Companies
             </span>
           </div>
-          
+
           <div className="relative w-full max-w-7xl mx-auto px-4 group">
             {/* Scrollable Container */}
-            <div 
+            <div
               ref={scrollRef} // ✅ ใส่ ref
               // ✅ เพิ่ม Event ให้หยุดเมื่อเอาเมาส์ชี้ หรือ นิ้วแตะ
               onMouseEnter={() => setIsPaused(true)}
@@ -1350,7 +1348,7 @@ export default function Home() {
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
               // ❌ ลบ scroll-smooth, snap-x, snap-mandatory ออก เพื่อให้ JS ทำงานได้ไหลลื่น
-              className="flex overflow-x-auto gap-6 pb-8 news-scrollbar" 
+              className="flex overflow-x-auto gap-6 pb-8 news-scrollbar"
             >
               {/* วนลูป 3 รอบเพื่อให้ลิสต์ยาวพอที่จะเลื่อนวนได้สวยๆ */}
               {[...clients, ...clients, ...clients].map((client, idx) => (
@@ -1372,7 +1370,7 @@ export default function Home() {
         {/* Footer (Updated Links) */}
         <footer
           id="ติดต่อเรา"
-          className="bg-[#0f172a] border-t-4 border-[#D4AF37] text-white py-20 px-4 relative overflow-hidden"
+          className="bg-[#0f172a] border-t-4 border-[#D4AF37] text-white py-12 md:py-20 px-4 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[120px] pointer-events-none"></div>
           <div className="max-w-7xl mx-auto relative z-10">
@@ -1923,7 +1921,7 @@ export default function Home() {
                 {/* เนื้อหาข่าว */}
                 <div className="p-6 md:p-10 bg-white">
                   {/* ใช้ dangerouslySetInnerHTML เพื่อแสดง HTML tag เช่น <p>, <ul> ได้ */}
-                  <div 
+                  <div
                     // แก้ไขตรงนี้: เพิ่ม text-slate-800 และปรับ prose color ให้เข้มขึ้น
                     className="prose prose-slate max-w-none text-slate-800 prose-p:text-slate-800 prose-headings:text-slate-900 prose-li:text-slate-800 prose-strong:text-slate-900"
                     dangerouslySetInnerHTML={{ __html: selectedNews.content }}
